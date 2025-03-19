@@ -1,0 +1,15 @@
+.DS_Store
+Lab2-2214497.zip
+.vscode/settings.json
+.vscode/tasks.json
+hello/hello
+hello/hello.cpp
+hello/task1
+hello/.vscode/c_cpp_properties.json
+*.json
+*.o
+task*
+hello/hello.dSYM/Contents/Info.plist
+hello/hello.dSYM/Contents/Resources/DWARF/hello
+hello/hello.dSYM/Contents/Resources/Relocations/aarch64/hello.yml
+Lab1/fibonacci.0
