@@ -22,21 +22,21 @@ int main(int argc, char* argv[]) {
 
 
     b.set_lives(42);
-    std::cout << " Lives: " << b.get_lives() << "\n";
+    std::cout << " Lives: " << b.get_lives() << std::endl;
     
     b.set_name("Prince");
-    std::cout << " Name: " << b.get_name() << "\n";
+    std::cout << " Name: " << b.get_name() << std::endl;
     
     b.set_lives(8);
-    std::cout << " Lives: " << b.get_lives() << "\n";
+    std::cout << " Lives: " << b.get_lives() << std::endl;
     
     b.set_lives(0);
-    std::cout << " Lives: " << b.get_lives() << "\n";
-    std::cout << " Name: " << b.get_name() << "\n";
+    std::cout << " Lives: " << b.get_lives() << std::endl;
+    std::cout << " Name: " << b.get_name() << std::endl;
 
     b.set_lives(0);
-    std::cout << " Lives: " << b.get_lives() << "\n";
-    std::cout << " Name: " << b.get_name() << "\n";          
+    std::cout << " Lives: " << b.get_lives() << std::endl;
+    std::cout << " Name: " << b.get_name() << std::endl;   
               
     return 0;
 

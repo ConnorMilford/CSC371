@@ -46,8 +46,14 @@ class Cat {
         }
 
         friend bool operator<(const Cat &lhs, const Cat &rhs) {
-            return lhs.get_lives() > rhs.get_lives();
+            if (lhs.get_name() < rhs.get_name()){
+                return true;
+            } else if (rhs.get_name() < lhs.get_name()){
+                return false;
+            }
+            return lhs.get_lives() < rhs.get_lives();
         }
+
 };
 
 
@@ -63,7 +69,6 @@ namespace std {
         }
     };
 }
-
 
 
 
