@@ -68,13 +68,13 @@ class Triangle : public Shape {
     Triangle(double x0, double x1, double x2, double y0,
                 double y1, double y2);
 
-    ~Triangle();
+    ~Triangle() override;
 
     std::string to_string() const override;
     void centre_at(double x, double y) override;
 
-    double centroid();
-    std::array<double, 3> calculateSideLengths();
+    Point centroid();
+    std::array<double, 3> calculateSideLengths() const;
     
 
 

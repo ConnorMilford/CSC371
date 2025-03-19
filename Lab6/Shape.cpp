@@ -76,13 +76,27 @@ void Rectangle::centre_at(double x, double y) {
     y1 = new_y1;
 }
 
-std::string Triangle::to_string() const {
+Triangle::Triangle(double x0, double x1, double x2, double y0, double y1, double y2)
+                : x0(x0), x1(x1), x2(x2), y0(y0), y1(y1), y2(y2) {
+    // ...
+}
 
+Triangle::~Triangle(){}
+
+std::string Triangle::to_string() const {
+    std::array<double, 3> sideLengths = this->calculateSideLengths();
+    std::ostringstream ss;
+    
+    ss << "Triangle at [(" << this->x0 << this->y0 << "), (" << this->x1 << this->y1
+        << "), " << this->x2 << this->y2 << ")] with side lengths " << sideLengths[0] 
+        << ", " << sideLengths[1] << ", " << sideLengths[2];
+
+    return ss.str();    
 }
 
 Point Triangle::centroid() {
-    return { (this->x + this->x + this->x) / 3.0,
-     (this->y + this->y + this->y) / 3.0 };
+    return { (this->x0 + this->x1 + this->x2) / 3.0,
+     (this->y0 + this->y1 + this->y2) / 3.0 };
 
 }
 
@@ -91,27 +105,27 @@ void Triangle::centre_at(double x, double y) {
     double xTrans = centroid.x - x;
     double yTrans = centroid.y - y;
 
-    this->x0 += xTrans;
-    this->x1 += xTrans;
-    this->x2 += xTrans;
+    this->x0 -= xTrans;
+    this->x1 -= xTrans;
+    this->x2 -= xTrans;
 
-    this->y0 += yTrans;
-    this->y1 += yTrans;
-    this->y2 += yTrans;
+    this->y0 -= yTrans;
+    this->y1 -= yTrans;
+    this->y2 -= yTrans;
 }
 
 
-std::array<double,3> Triangle::calculateSideLengths() {
-    std:array<double, 3> sideLengths;
+std::array<double,3> Triangle::calculateSideLengths() const {
+    std::array<double, 3> sideLengths;
 
-    sideLengths[0] = std::sqrt((x1 - x0) * (x1 - x0) +
-        (y1 - y0) * (y1 - y0));
+    sideLengths[0] = std::sqrt(( this->x1 -  this->x0) * ( this->x1 -  this->x0) +
+        ( this->y1 -  this->y0) * ( this->y1 -  this->y0));
 
-    sideLengths[1] = std::sqrt((x2 - x1) * (x2 - x1) +
-        (y2 - y1) * (y2 - y1));
+    sideLengths[1] = std::sqrt(( this->x2 -  this->x1) * ( this->x2 -  this->x1) +
+        ( this->y2 -  this->y1) * ( this->y2 -  this->y1));
 
-    sideLengths[2] = std::sqrt((x0 - x2) * (x0 - x2) +
-        (y0 - y2) * (y0 - y2));
+    sideLengths[2] = std::sqrt(( this->x0 -  this->x2) * ( this->x0 -  this->x2) +
+        ( this->y0 -  this->y2) * ( this->y0 -  this->y2));
 
     return sideLengths;    
 }
